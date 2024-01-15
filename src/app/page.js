@@ -42,20 +42,36 @@ export default function Home() {
           </thead>
           <tbody>
             {users.map((data, key) => (
-              <tr key={key}>
-                <td className='px-6 py-4 border-2 border-black'>{data.id}</td>
-                <td className='px-6 py-4 border-2 border-black'>{data.name}</td>
-                <td className='px-6 py-4 border-2 border-black'>{data.username}</td>
-                <td className='px-6 py-4 border-2 border-black'>
-                  <Link href={`/user/${data.id}`} className='px-3 py-3 bg-blue-400 text-white rounded-xl'>
-                    Detail
-                  </Link>
-                </td>
-              </tr>
+              <UserItem key={key} item={data} />
+              // <tr key={key}>
+              //   <td className='px-6 py-4 border-2 border-black'>{data.id}</td>
+              //   <td className='px-6 py-4 border-2 border-black'>{data.name}</td>
+              //   <td className='px-6 py-4 border-2 border-black'>{data.username}</td>
+              //   <td className='px-6 py-4 border-2 border-black'>
+              //     <Link href={`/user/${data.id}`} className='px-3 py-3 bg-blue-400 text-white rounded-xl'>
+              //       Detail
+              //     </Link>
+              //   </td>
+              // </tr>
             ))}
           </tbody>
         </table>
       )}
     </section>
+  );
+}
+
+function UserItem({ item }) {
+  return (
+    <tr>
+      <td className='px-6 py-4 border-2 border-black'>{item.id}</td>
+      <td className='px-6 py-4 border-2 border-black'>{item.name}</td>
+      <td className='px-6 py-4 border-2 border-black'>{item.username}</td>
+      <td className='px-6 py-4 border-2 border-black'>
+        <Link href={`/user/${item.id}`} className='px-3 py-3 bg-blue-400 text-white rounded-xl'>
+          Detail
+        </Link>
+      </td>
+    </tr>
   );
 }
